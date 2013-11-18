@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Welcome to URL Shortener</h1>
+<%= form_for @url, url: {action: "create"}, html: {class: "pretty_pretty"} do |f| %>
+<%= f.text_field :long %>
+<%= f.submit "Create Url" %>
+<%end%>
+
+  <% if @urls %>
+    <ul>
+      <% @urls.each do |url| %>
+        <li><%= link_to(url.short, url.long) %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
